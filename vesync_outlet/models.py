@@ -133,6 +133,10 @@ class Vesync(object):
     """
     get list of all outlets
 
+    params:
+        an optional list of device-types to filter. currently, wifi-switch is
+        the only type.
+        
     returns:
         a tuple [data (or, None), requests.response object]
         if data is None, check response status code and messages.
@@ -161,8 +165,11 @@ class Vesync(object):
     """
     turn an outlet on
 
-    a tuple [data (or, None), requests.response object]
-    if data is None, check response status code and messages.
+    params:
+        an object id
+    returns:
+        a tuple [data (or, None), requests.response object]
+        if data is None, check response status code and messages.
     """
     def turn_on(self, oid, repeat=None):
         response = None
@@ -179,8 +186,11 @@ class Vesync(object):
     """
     turn an outlet off
 
-    a tuple [data (or, None), requests.response object]
-    if data is None, check response status code and messages.
+    params:
+        an object id
+    returns:
+        a tuple [data (or, None), requests.response object]
+        if data is None, check response status code and messages.
     """
     def turn_off(self, oid, repeat=None):
         response = None
@@ -189,6 +199,6 @@ class Vesync(object):
             repeat = self.repeats
 
         for n in range(1, repeat + 1):
-            response = self._switch_outlet(oid, 1)
+            response = self._switch_outlet(oid, 0)
 
         return (response.json(), response)

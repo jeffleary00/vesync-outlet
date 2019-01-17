@@ -8,7 +8,7 @@ pip3 install vesync-outlet
 
 ## Usage
 ```
-from vesync-outlet import Vesync
+from vesync_outlet import Vesync
 
 hashpw = hashlib.md5(password.encode('utf-8')).hexdigest()
 

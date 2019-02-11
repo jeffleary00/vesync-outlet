@@ -14,7 +14,7 @@ except(IOError, ImportError):
 
 setup(
     name='vesync-outlet',
-    version='0.1.0',
+    version='0.1.1',
     description='vesync-outlet is a library to control Vesync wifi outlets',
     long_description=long_description,
     url='https://github.com/jeffleary00/vesync-outlet',
@@ -30,8 +30,7 @@ setup(
         'Programming Language :: Python :: 3.0',
     ],
     keywords=['vesync', 'iot'],
-    packages=find_packages('vesync_outlet'),
-    package_dir={'': 'vesync_outlet'},
+    packages=['vesync_outlet'],
     zip_safe=False,
     install_requires=['requests>=2.6.0'],
 )
